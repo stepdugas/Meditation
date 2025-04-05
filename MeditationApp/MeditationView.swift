@@ -10,28 +10,44 @@ import SwiftUI
 struct MeditationView: View {
     var body: some View {
         ZStack {
-            Image("beach")
+            // Background image
+            Image("bible-coffeecup")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             
-            VStack {
-                Spacer()
-                
+            VStack(spacing: 20) {
+                // Meditation icon
+                Image(systemName: "apple.meditate")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.white)
+                    .shadow(radius: 5)
+
+                // Outlined text – Line 1
                 ZStack {
-                    
-                    Text("Welcome to your meditation app")
+                    Text("Welcome to your")
                         .font(.title)
                         .foregroundColor(.black)
-                        .offset(x: 1, y: 1)
-                    
-                    Text("Welcome to your meditation")
+                        .offset(x: -1, y: -1)
+                    Text("Welcome to your")
                         .font(.title)
                         .foregroundColor(.white)
                 }
-                .padding(.bottom,100)
-                
+
+                // Outlined text – Line 2
+                ZStack {
+                    Text("meditation app")
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .offset(x: -1, y: -1)
+                    Text("meditation app")
+                        .font(.title)
+                        .foregroundColor(.white)
+                }
             }
+            .padding(.bottom, 100)
         }
     }
 }
