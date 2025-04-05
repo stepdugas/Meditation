@@ -49,7 +49,7 @@ struct MeditationView: View {
                             .font(.title)
                             .foregroundColor(.white)
                     }
-                    NavigationLink(destination: MeditationDetailView()) {
+                    NavigationLink(destination: MeditationListView()) {
                         Text("Start")
                             .font(.headline)
                             .foregroundColor(.black)
