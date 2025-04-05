@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct MeditationAppApp: App {
+struct MeditationApp: App {
     var body: some Scene {
         WindowGroup {
             MeditationView()

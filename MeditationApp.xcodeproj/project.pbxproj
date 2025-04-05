@@ -35,16 +35,6 @@
 			path = MeditationApp;
 			sourceTree = "<group>";
 		};
-		87343CCA2D9F2C8A0018B485 /* MeditationAppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MeditationAppTests;
-			sourceTree = "<group>";
-		};
-		87343CD42D9F2C8A0018B485 /* MeditationAppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MeditationAppUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				87343CB92D9F2C860018B485 /* MeditationApp */,
-				87343CCA2D9F2C8A0018B485 /* MeditationAppTests */,
-				87343CD42D9F2C8A0018B485 /* MeditationAppUITests */,
 				87343CB82D9F2C860018B485 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				87343CC92D9F2C8A0018B485 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				87343CCA2D9F2C8A0018B485 /* MeditationAppTests */,
-			);
 			name = MeditationAppTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				87343CD32D9F2C8A0018B485 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				87343CD42D9F2C8A0018B485 /* MeditationAppUITests */,
 			);
 			name = MeditationAppUITests;
 			packageProductDependencies = (
@@ -393,9 +375,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MeditationApp/MeditationApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeditationApp/Preview Content\"";
+				DEVELOPMENT_TEAM = YV56753Y7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -421,9 +405,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MeditationApp/MeditationApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeditationApp/Preview Content\"";
+				DEVELOPMENT_TEAM = YV56753Y7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
