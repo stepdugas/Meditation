@@ -13,6 +13,7 @@ struct Meditation: Identifiable {
     let duration: String
     let description: String
     let imageName: String
+    let audioFileName: String
 }
 
 let sampleMeditations = [
@@ -20,12 +21,14 @@ let sampleMeditations = [
         title: "1 Minute Relaxing Meditation",
         duration: "1:00",
         description: "Take a moment to slow down and reconnect with your breath.",
-        imageName: "feather"
+        imageName: "feather",
+        audioFileName: "relaxing1min"
     ),
     Meditation(
         title: "Calm Morning",
         duration: "5:00",
         description: "Start your day with peace and clarity.",
-        imageName: "morningBeach"
+        imageName: "morningBeach",
+        audioFileName: "calmMorning"
     )
 ]
