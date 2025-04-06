@@ -4,12 +4,19 @@
 //
 //  Created by Stephanie Dugas on 4/6/25.
 //
-
 import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
         TabView {
+            // 🏠 Home Tab
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house.fill")
+            }
+
             // 🧘 Meditations Tab
             NavigationStack {
                 MeditationListView()
