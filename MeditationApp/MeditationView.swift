@@ -19,7 +19,6 @@ struct MeditationView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                    // Meditation icon
                     Image(systemName: "apple.meditate")
                         .resizable()
                         .padding()
@@ -28,7 +27,6 @@ struct MeditationView: View {
                         .foregroundColor(.white)
                         .shadow(radius: 5)
                     
-                    // Outlined text – Line 1
                     ZStack {
                         Text("Welcome to your")
                             .font(.title)
@@ -39,7 +37,6 @@ struct MeditationView: View {
                             .foregroundColor(.white)
                     }
                     
-                    // Outlined text – Line 2
                     ZStack {
                         Text("meditation app")
                             .font(.title)
@@ -49,6 +46,7 @@ struct MeditationView: View {
                             .font(.title)
                             .foregroundColor(.white)
                     }
+                    
                     NavigationLink(destination: MeditationListView()) {
                         Text("Start")
                             .font(.headline)
