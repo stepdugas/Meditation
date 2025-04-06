@@ -65,23 +65,22 @@ struct IntentionView: View {
                 }
                 .padding(.horizontal)
 
-                // If user chooses to write their own
                 if showCustomInput {
-                    TextField("Enter your intention", text: $customIntention)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                    VStack(spacing: 10) {
+                        TextField("Enter your intention", text: $customIntention)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal)
 
-                    Button("Start Meditation") {
-                        if !customIntention.trimmingCharacters(in: .whitespaces).isEmpty {
-                            selectedIntention = customIntention
-                            didSetIntention = true
+                        Button("Start Meditation") {
+                            if !customIntention.trimmingCharacters(in: .whitespaces).isEmpty {
+                                selectedIntention = customIntention
+                                didSetIntention = true
+                            }
                         }
+                        .font(.headline)
+                        .padding(.horizontal)
                     }
-                    .font(.headline)
-                    .padding(.top, 10)
                 }
-
-                Spacer()
             }
             .padding(.top, 50)
             .padding(.horizontal)
