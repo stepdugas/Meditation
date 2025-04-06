@@ -28,7 +28,9 @@ struct MeditationListView: View {
 
             // List of filtered meditations
             List(filteredMeditations) { meditation in
-                NavigationLink(destination: MeditationDetailView(meditation: meditation)) {
+                
+                NavigationLink(destination: MeditationStartFlowView(meditation: meditation)) {
+                    
                     HStack {
                         Image(meditation.imageName)
                             .resizable()
