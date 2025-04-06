@@ -12,6 +12,12 @@ struct PlayerView: View {
     let meditation: Meditation
     @State private var value: Double = 0.0
     @StateObject private var audioManager = AudioManager()
+    
+    func formatTime(_ time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%d:%02d", minutes, seconds)
+    }
 
     var body: some View {
         ZStack {
@@ -24,7 +30,7 @@ struct PlayerView: View {
                 // Top bar
                 HStack {
                     Button(action: {
-                        // Dismiss
+                        audioManager.stopAudio()
                     }) {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 30))
@@ -45,13 +51,18 @@ struct PlayerView: View {
 
                 // Slider
                 VStack(spacing: 5) {
-                    Slider(value: $value, in: 0...60)
-                        .accentColor(.white)
+                    Slider(value: Binding(
+                        get: { audioManager.currentTime },
+                        set: { newValue in
+                            audioManager.setCurrentTime(newValue)
+                        }
+                    ), in: 0...audioManager.duration)
+                    .accentColor(.white)
 
                     HStack {
-                        Text("0:00")
+                        Text(formatTime(audioManager.currentTime))
                         Spacer()
-                        Text("1:00")
+                        Text(formatTime(audioManager.duration))
                     }
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.8))
