@@ -13,7 +13,7 @@ struct HomeView: View {
 
     var body: some View {
         ZStack {
-            // Background image
+            // 🌄 Background image
             Image("bible-coffeecup")
                 .resizable()
                 .scaledToFill()
@@ -38,7 +38,8 @@ struct HomeView: View {
                 howAreYouFeelingSection
                 */
             }
-            .padding()
+            .padding(.horizontal)
+            //.frame(maxWidth: .infinity, alignment: .leading)
         }
         .onAppear {
             updateStreak()
@@ -138,11 +139,5 @@ struct HomeView: View {
             streakCount = 1
             lastMeditationDate = formatter.string(from: today)
         }
-    }
-}
-
-#Preview {
-    NavigationView {
-        HomeView()
     }
 }
