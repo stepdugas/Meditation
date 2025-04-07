@@ -29,7 +29,7 @@ struct MainTabView: View {
                     case .meditations:
                         MeditationListView()
                     case .favorites:
-                        Text("Favorites View Coming Soon")
+                        FavoritesView()
                     case .settings:
                         SettingsView()
                     }

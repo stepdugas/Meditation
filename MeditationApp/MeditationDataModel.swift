@@ -16,26 +16,28 @@ enum MeditationCategory: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
 }
 
-struct Meditation: Identifiable {
-    let id = UUID()
+struct Meditation: Identifiable, Equatable {
+    let id: String
     let title: String
     let duration: String
     let description: String
     let imageName: String
     let audioFileName: String
-    let category: MeditationCategory // ← new line
+    let category: MeditationCategory
 }
 
 let sampleMeditations = [
     Meditation(
+        id: "relax1min",
         title: "1 Minute Relaxing Meditation",
         duration: "1:00",
         description: "Take a moment to slow down and reconnect with your breath.",
         imageName: "feather",
         audioFileName: "relaxing1min",
-        category:   .stressRelief
+        category: .stressRelief
     ),
     Meditation(
+        id: "calmMorning",
         title: "Calm Morning",
         duration: "5:00",
         description: "Start your day with peace and clarity.",
@@ -43,4 +45,5 @@ let sampleMeditations = [
         audioFileName: "calmMorning",
         category: .morning
     )
+
 ]
