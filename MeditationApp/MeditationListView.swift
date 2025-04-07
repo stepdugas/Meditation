@@ -16,39 +16,41 @@ struct MeditationListView: View {
     }
 
     var body: some View {
-        VStack {
-            // Category Picker
-            Picker("Category", selection: $selectedCategory) {
-                ForEach(MeditationCategory.allCases) { category in
-                    Text(category.rawValue).tag(category)
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding()
-
-            // List of filtered meditations
-            List(filteredMeditations) { meditation in
-                
-                NavigationLink(destination: MeditationStartFlowView(meditation: meditation)) {
-                    
-                    HStack {
-                        Image(meditation.imageName)
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .cornerRadius(8)
-
-                        VStack(alignment: .leading) {
-                            Text(meditation.title)
-                                .font(.headline)
-                            Text(meditation.duration)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
+        NavigationStack{
+            VStack {
+                // Category Picker
+                Picker("Category", selection: $selectedCategory) {
+                    ForEach(MeditationCategory.allCases) { category in
+                        Text(category.rawValue).tag(category)
                     }
-                    .padding(.vertical, 4)
+                }
+                .pickerStyle(.segmented)
+                .padding()
+                
+                // List of filtered meditations
+                List(filteredMeditations) { meditation in
+                    
+                    NavigationLink(destination: MeditationStartFlowView(meditation: meditation)) {
+                        
+                        HStack {
+                            Image(meditation.imageName)
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .cornerRadius(8)
+                            
+                            VStack(alignment: .leading) {
+                                Text(meditation.title)
+                                    .font(.headline)
+                                Text(meditation.duration)
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
                 }
             }
+            .navigationTitle("Meditations")
         }
-        .navigationTitle("Meditations")
     }
 }
