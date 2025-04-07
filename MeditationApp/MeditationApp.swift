@@ -6,11 +6,21 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 @main
 struct MeditationApp: App {
     @AppStorage("hasSeenWelcome") private var hasSeenWelcome = false
     @AppStorage("isDarkMode") private var isDarkMode = false
+
+    init() {
+        // Ask for notification permission once when app launches
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("Notification error: \(error)")
+            }
+        }
+    }
 
     var body: some Scene {
         WindowGroup {
