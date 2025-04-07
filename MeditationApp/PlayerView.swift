@@ -12,7 +12,25 @@ struct PlayerView: View {
     let meditation: Meditation
     @State private var value: Double = 0.0
     @StateObject private var audioManager = AudioManager()
-    
+
+    @AppStorage("favoriteMeditationIDs") private var favoriteMeditationIDs = ""
+
+    private var isFavorite: Bool {
+        favoriteMeditationIDs.components(separatedBy: ",").contains(meditation.id)
+    }
+
+    private func toggleFavorite() {
+        var ids = Set(favoriteMeditationIDs.components(separatedBy: ",").filter { !$0.isEmpty })
+
+        if ids.contains(meditation.id) {
+            ids.remove(meditation.id)
+        } else {
+            ids.insert(meditation.id)
+        }
+
+        favoriteMeditationIDs = ids.joined(separator: ",")
+    }
+
     func formatTime(_ time: TimeInterval) -> String {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
@@ -41,11 +59,19 @@ struct PlayerView: View {
                 .padding(.horizontal)
                 .padding(.top, 50)
 
-                // Title
-                Text(meditation.title)
-                    .font(.title2)
-                    .foregroundColor(.blue)
-                    .padding(.top, 20)
+                // Title + Favorite Button
+                VStack(spacing: 8) {
+                    Text(meditation.title)
+                        .font(.title2)
+                        .foregroundColor(.blue)
+
+                    Button(action: toggleFavorite) {
+                        Image(systemName: isFavorite ? "star.fill" : "star")
+                            .foregroundColor(isFavorite ? .yellow : .gray)
+                            .font(.title2)
+                    }
+                }
+                .padding(.top, 20)
 
                 Spacer()
 
